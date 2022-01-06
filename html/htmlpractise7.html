@@ -9,23 +9,19 @@
 </head>
 <body>
     <div>
-        <form>
+        <form method="post" action="success.html">
             <fieldset>
                 <legend>your address</legend> 
-                <label>First name</label>
-                <input type="text" id="fname"><br>
-                <label>Last name</label>
-                <input type="text" id="lname"><br>
-                <label>Street</label>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" required><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" required><br>
+                <label for="street">Street</label>
                 <input type="text" id="Street"><br>
-                <label>City</label>
+                <label for="city">City</label>
                 <input type="text" id="city">
             </fieldset>
-        </form>
-        
-    </div>
-    <div>
-        <form>
+    
             <fieldset>
                 <legend>Additional Details</legend>
                 <label for="textarea">Biography</label>
@@ -39,9 +35,7 @@
                     <option>20-30</option>  
                 </select>
             </fieldset>        
-        </form>
-    </div>
-    <div>
+        
         <fieldset>
             <legend>interest</legend>
             <label>Hobbies</label><br>
@@ -61,11 +55,18 @@
             </select><br>
             <label>Favorite public transport?</label>
             <select>
+                <option disabled selected hidden>ground</option>
                 <option>train</option>
                 <option>bus</option>
-                <option>boat</option>
             </select>
-        </fieldset>   
+            <select>
+                <option disabled selected hidden>water</option>
+                <option>boat</option>
+            </select>  
+        </fieldset> 
+        <input type="submit">
+        <input type="reset">
+        </form>  
     </div>
 </body>
 </html>
