@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fname,#email,#num,#text{
+            margin-top: 10px;
+            height: 30px;
+            width: 300px;
+        }
+
+        
+        .form {
+            display: flex;
+            justify-content: center;
+        }
+        #button{
+            color: white;
+            background-color: blue;
+            border-radius: 30%;
+            height: 30px;
+            width: 100px;
+            
+        }
+        .but{
+            display: flex;
+            justify-content: center;
+
+        }
+        #img{
+            height: 200px;
+            width: 500px;
+            margin-left: 450px;
+        }
+
+    </style>
+</head>
+<body>
+    <img src="images/contactus.jpg" id="img">
+    <div class="form">
+        <form>
+            <input type="text" id="fname" placeholder="full name"><br>
+            <input type="email" id="email" placeholder="E.g example@gmail.com"><br>
+            <input type="number" id="num" placeholder="E.g +1800000000"><br>
+            <textarea id="text" placeholder="your comments"></textarea><br>
+            <div class="but">
+                <input type="button" id="button" value="send now">
+            </div>
+            
+        </form>
+    </div>  
+</body>
+</html>

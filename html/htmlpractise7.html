@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+        <form method="post" action="success.html">
+            <fieldset>
+                <legend>your address</legend> 
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" required><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" required><br>
+                <label for="street">Street</label>
+                <input type="text" id="Street"><br>
+                <label for="city">City</label>
+                <input type="text" id="city">
+            </fieldset>
+    
+            <fieldset>
+                <legend>Additional Details</legend>
+                <label for="textarea">Biography</label>
+                <textarea id="textarea"></textarea><br>
+                <label for="myfile">image</label>
+                <input type="file" id="myfile"><br>
+                <label>Age Group</label>
+                <select>
+                    <option>0-9</option>
+                    <option>10-20</option>
+                    <option>20-30</option>  
+                </select>
+            </fieldset>        
+        
+        <fieldset>
+            <legend>interest</legend>
+            <label>Hobbies</label><br>
+            <input type="checkbox">
+            <label>playing socer</label><br>
+            <input type="checkbox">
+            <label>Gardenig</label><br>
+            <input type="checkbox">
+            <label>Dancing</label><br>
+            <input type="checkbox">
+            <label>watching moives</label><br>
+            <label>Favorite car?</label>
+            <select>
+                <option>Volvo</option>
+                <option>bmw</option>
+                <option>mercidies</option>
+            </select><br>
+            <label>Favorite public transport?</label>
+            <select>
+                <option disabled selected hidden>ground</option>
+                <option>train</option>
+                <option>bus</option>
+            </select>
+            <select>
+                <option disabled selected hidden>water</option>
+                <option>boat</option>
+            </select>  
+        </fieldset> 
+        <input type="submit">
+        <input type="reset">
+        </form>  
+    </div>
+</body>
+</html>
