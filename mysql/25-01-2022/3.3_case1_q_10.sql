@@ -1,0 +1,2 @@
+/* 10.	List out the menu items which are preferred by the customer at dinner time. */
+select itemId,count(itemId) as most_preferred from order_item where createdAt between '19:00:00' and '24:00:00' group by itemId order by most_preferred desc;
