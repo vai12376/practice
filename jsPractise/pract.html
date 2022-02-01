@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <script>
+        var flag;
+        function check(){
+            let email=document.getElementById('email').value;
+            let pswd=document.getElementById('psw').value;
+
+            if(email=="v@gmail.com" && pswd=="tre"){
+                flag=1;
+            }
+            else{
+                alert("invalid user");
+            }
+        }
+        if(flag==1){
+        window.location.href='/user.html';
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="email" id="email" placeholder="email"><br>
+        <input type="password" id="psw" placeholder="password"><br>
+        <input type="submit" value="login" onclick="check()">
+    </form>
+   
+</body>
+</html>
