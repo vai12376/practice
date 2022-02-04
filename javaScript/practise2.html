@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="data"></p>
+    <script>
+        var Mike_Team_Avg_Score;
+        var John_Team_Avg_Score;
+        var Mary_Team_Avg_Score;
+
+        Mike_Team_Avg_Score = (116 + 94 + 123) / 3;
+        John_Team_Avg_Score = (89 + 120 + 103) / 3;
+        Mary_Team_Avg_Score = (97 + 134 + 105) / 3;
+
+        //for mike and john
+        if (Mike_Team_Avg_Score > John_Team_Avg_Score) {
+            document.getElementById('data').innerHTML = 'Mike_team has higher avrage score' + Mike_Team_Avg_Score + 'which is higher than John_team avrage score' + John_Team_Avg_Score;
+        } else if (Mike_Team_Avg_Score == John_Team_Avg_Score) {
+            document.getElementById.innerHTML = 'may be match is draw';
+        } else {
+            document.getElementById('data').innerHTML = 'John_team has higher avrage score' + John_Team_Avg_Score + ' than Mike_team avrage score' + Mike_Team_Avg_Score;
+        }
+
+        //for mike  john and mary
+        var Mike_win = false;
+        var John_win = false;
+        var Mary_win = false;
+        if (Mike_Team_Avg_Score > John_Team_Avg_Score) {
+            if (Mary_Team_Avg_Score > Mike_Team_Avg_Score) {
+                Mary_win = true;
+                document.getElementById('data').innerHTML = 'mary has highest score';
+            } else if (Mary_Team_Avg_Score == Mike_Team_Avg_Score) {
+                document.getElementById('data').innerHTML = 'mary and mike has same highest winning score';
+            } else {
+                Mike_win = true;
+                document.getElementById('data').innerHTML = 'mike has highest score';
+            }
+        } else if (Mike_Team_Avg_Score == John_Team_Avg_Score) {
+            if (Mary_Team_Avg_Score > Mike_Team_Avg_Score) {
+                document.getElementById('data').innerHTML = 'mary has highest score';
+            } else {
+                document.getElementById('data').innerHTML = 'mike and john has same highest score';
+            }
+        } else {
+            if (John_Team_Avg_Score < Mary_Team_Avg_Score) {
+                Mary_win = true;
+                document.getElementById('data').innerHTML = 'mery has highet score';
+            } else if (John_Team_Avg_Score == Mary_Team_Avg_Score) {
+                document.getElementById('data').innerHTML = 'john and mery has same highest value';
+            } else {
+                document.getElementById('data').innerHTML = 'john has highest score';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="data"></p>
+    <script>
+        var Mark_Mass = 20;
+        var John_Mass = 30;
+
+        var Mark_Height = 2.7;
+        var John_Height = 3.1;
+
+        var Mark_BMI = Mark_Mass / (Mark_Height ^ 2);
+        var John_BMI = John_Mass / (John_Height ^ 2);
+
+        if (Mark_BMI > John_BMI) {
+            document.getElementById('data').textContent = 'Mark_BMI is higher than John_BMI';
+        } else {
+            document.getElementById('data').textContent = 'John_BMI is higher than Mark_BMI';
+        }
+        /*
+                var ternary = (Mark_BMI > John_BMI) ? 'Mark_BMI is higher than John_BMI' : 'John_BMI is higher than Mark_BMI';
+                document.getElementById('data').textContent = ternary;*/
+    </script>
+</body>
+
+</html>

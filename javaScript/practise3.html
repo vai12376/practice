@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="data"></p>
+    <script>
+        var bill = [124, 48, 268];
+        var final = [];
+        var tip = [];
+        var t;
+
+        function tip_calculater(bill) {
+            for (i in bill) {
+                if (bill[i] < 50) {
+                    t = bill[i] * 0.2;
+                    tip.push(t);
+                } else if (50 <= bill[i] <= 200) {
+                    t = bill[i] * 0.15;
+                    tip.push(t);
+                } else {
+                    t = bill[i] * 0.1;
+                    tip.push(t);
+                }
+            }
+            return tip;
+        }
+        for (i = 0; i < bill.length; i++) {
+            final[i] = bill[i] + tip[i];
+        }
+        console.log(tip);
+        for (i in tip) {
+            document.getElementById('data').innerHTML += tip[i];
+
+        }
+        for (i in final) {
+            document.getElementById('data').innerHTML += final[i];
+        }
+
+
+
+
+
+        /*
+         */
+    </script>
+</body>
+
+</html>
