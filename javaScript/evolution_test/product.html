@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="product.js"></script>
+</head>
+
+<body>
+    <a href="category.html"></a>
+    <h1>Add Product Form</h1>
+    <div id="formDiv">
+
+        <form id="productForm">
+            <label for="ProductTitle">Product Title</label><br>
+            <input id="ProductTitle" type="text" placeholder="enter product title here"><br>
+            <label for="ProductPrice">Price</label><br>
+            <input id="ProductPrice" type="number" placeholder="enter product price here"><br>
+            <label for="ProductDescription">Description</label><br>
+            <input id="ProductDescription" type="text" placeholder="Type here"><br>
+            <label>Category</label>
+            <select id="ProductCategory">
+               
+            </select><br>
+            <input id="ProductFile" type="file">
+            <input id="ProductButton" type="button" value="add product" onclick="addData()">
+        </form>
+    </div>
+    <div id="productListDiv">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product Image</th>
+                    <th scope="col">Product Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="ProductTable">
+
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
