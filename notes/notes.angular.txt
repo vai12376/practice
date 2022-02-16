@@ -1,0 +1,77 @@
+angular day 1 notes
+
+1.what is framworks
+=>A framework is a structure that you can build software on.
+
+2.what is angular cli
+=>it can be download by npm (node package manager) by npm install @angular/cli
+
+3.different usefull ng commands
+=>
+*ng new projectName (initialize a new angular project)
+
+*ng serve (compile angular project and run it by default on localhost:4200)
+if you want to change the port number then use ng serve --port8080
+
+*ng biuld (use to compile and run angular application at production time because we can set url here)
+
+*ng generate component component-name
+*ng generate module module-name
+
+4.file structure of a angular project
+start with main.ts file 
+this file bootstrap our angular application by bootstrapping App-module
+index.html and style.css for global style and html 
+
+angular.json file
+this file contain all neceserily information about angular project.like version ,build ,architech details
+
+project.json
+this file contain all dependency and devdependency in it.
+
+app/src folder
+here all the main application related file that devloper  is working on.
+it contain all module and component a project has.
+
+5.AOT and JIT compilation 
+AOT (ahead of time compilation)
+application will compile on server and then compiled file will be send to browser so error will be  shown on to server not on to browser
+
+usefull for large application
+
+JIT (just in time) compilation occers at browser so error will be shown at browser.
+
+suitable for small size projects
+
+day-2
+
+1.loading platform
+
+=>it give angular information about on which platform app will be going to run so it can compile accordingly
+
+2.enabling production mode
+=> a devloper can not use production mode
+environment can be set accordingly for devloper, production and q&a team so they can only perform actions that they are permit to perform.
+
+3. understanding module and components and how to genrate  them 
+=>modules are features of a application 
+for example for a library managment system modules can be like users, admin, authenticate etc
+and components are a smallest component that represt a UI in application
+
+every module need NGmodule to define itself
+@ngModule contain metadata about app-module class,
+it has parameter like import,export,bootstrap,provider,
+declaration etc..
+
+declaration:[components],
+import:[modules],
+bootstrap[default component]
+
+same as components contain @component decorator for define a component
+
+selector:custom html element that represent this component
+template:html code that the component made of 
+style:style related to this component,
+styleUrl:path of style file.
+templateUrl;path of html file that represent this component
+
