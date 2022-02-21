@@ -1,0 +1,22 @@
+<style>
+    .parent {
+        height: 200px;
+        width: 300px;
+        background-color: blue;
+    }
+</style>
+
+<div class="parent">
+    <p>{{msg | uppercase}} component {{title?'good morning':'good night'}}</p>
+    <input (keyup)="changeImage($event)" [value]="imgUrl">
+
+    
+    <app-sibling [url]="imgUrl" (imgSelected)="logImg($event)">
+        <input [value]="title">
+        <p>content projection</p>
+    </app-sibling>
+    <app-child></app-child>
+
+</div>
+<router-outlet></router-outlet>
+

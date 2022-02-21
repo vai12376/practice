@@ -1,0 +1,10 @@
+<style>
+    :host{
+        font-size: 24px;
+    }
+</style>
+<div class="sibling">
+    <img [src]='postUrl' (click)="imgSelected.emit(postUrl)">
+    
+</div>
+<ng-content></ng-content>
