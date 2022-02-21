@@ -33,6 +33,20 @@ Detect and act upon changes that Angular can't or won't detect on its own.
 
 Called immediately after ngOnChanges() on every change detection run,
  and immediately after ngOnInit() on the first run.
+ 
+ 
+## pipes in angular
+
+a feature for transforming data in the template
+pipe can be very usefull to render values in template without changing the original value.
+
+
+## how many ways of parent child interaction
+
+using @input()
+using @output()
+using services
+parent component calling viewchild
 
 ## View and content 
 
