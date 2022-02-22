@@ -1,0 +1,51 @@
+<!-- @format -->
+
+<p>{{ price | currency: "EUR" }}</p>
+<p>{{ date | date: "short" }}</p>
+<p>{{ date | date: "medium" }}</p>
+<p>{{ date | date: "long" }}</p>
+<p>{{ date | date: "full" }}</p>
+<p>{{ date | date: "YYYY/LLL/dd" }}</p>
+
+<p>{{ price | currency: "INR":"symbol":"4.1-3" }}</p>
+<p>{{ value | number: "2.1-1" }}</p>
+<p>{{ value | number: "2.1-1" }}</p>
+<p>{{ value | percent }}</p>
+<p>{{ value | demo: "killogram" }}</p>
+
+<p *ngIf="isBlue; then blue; else notBlue">thi is blue</p>
+<ng-template #blue> is it blue </ng-template>
+<ng-template #notBlue> this is not blue </ng-template>
+<table>
+  <thead>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Age</th>
+  </thead>
+  <tbody>
+    <div>
+      <p *ngFor="let i of contacts; last as l; first as f; even as e; odd as o">
+        <tr *ngIf="isBlue; else abc">
+          <td>
+            {{ i.firstName }}
+          </td>
+          <td>
+            {{ i.lastName }}
+          </td>
+          <td>
+            {{ i.age }}
+          </td>
+        </tr>
+        <ng-template #abc> else block</ng-template>
+      </p>
+    </div>
+  </tbody>
+</table>
+
+<p [ngClass]="'c1'">class c1</p>
+<p [ngClass]="'c1 c2 c3'">multiple class example</p>
+<p [ngClass]="className">pass class property example</p>
+
+<p [ngStyle]="{ color: colorName === 'red' ? 'red' : 'green' }">
+  ng style example
+</p>
