@@ -34,6 +34,14 @@ Detect and act upon changes that Angular can't or won't detect on its own.
 Called immediately after ngOnChanges() on every change detection run,
  and immediately after ngOnInit() on the first run.
  
+## directives 
+
+### two types of directives 
+1. attribute directive 
+this will just change the style and behavior of a element
+2.structural directive
+ this directives are used to add and remove element from DOM.
+ 
  
 ## pipes in angular
 
