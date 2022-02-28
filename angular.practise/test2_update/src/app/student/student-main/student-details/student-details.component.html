@@ -1,0 +1,20 @@
+<!-- @format -->
+
+<p>student details works</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        {{ commingData.gender == "female" ? "mrs" : ""
+        }}{{ commingData.gender == "male" ? "mr" : ""
+        }}{{ commingData.firstName }}
+      </td>
+      <td>{{ commingData.lastName }}</td>
+      <td>{{ commingData.gender }}</td>
+      <td>{{ commingData.instName }}</td>
+      <td>{{ commingData.city }}</td>
+      <td>{{ commingData.description }}</td>
+    </tr>
+  </tbody>
+</table>

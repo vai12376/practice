@@ -1,0 +1,20 @@
+<!-- @format -->
+
+<table>
+  <tbody>
+    <tr
+      *ngFor="let i of tableData"
+      [ngStyle]="{
+        'background-color': i.gender == 'female' ? 'pink' : 'blue'
+      }"
+      [ngClass]="i.gender == 'female' ? 'c1' : 'c2'"
+    >
+      <td>{{ i.firstName }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.instName }}</td>
+      <td>{{ i.city }}</td>
+      <button (click)="deleteStudent(i)">delete</button>
+      <button (click)="sendDetails.emit(i)">details</button>
+    </tr>
+  </tbody>
+</table>

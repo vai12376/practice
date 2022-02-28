@@ -1,0 +1,38 @@
+<!-- @format -->
+
+<p>student-list works!</p>
+FirstName:<input type="text" #firstName /><br />
+LastName:<input type="text" #lastName /><br />
+Gender Detail:<br />
+<input
+  type="radio"
+  name="gender"
+  value="female"
+  id="f"
+  #female
+  (click)="setGender(female)"
+/>
+
+<label for="f">female</label><br />
+<input
+  type="radio"
+  name="gender"
+  value="male"
+  id="m"
+  #male
+  (click)="setGender(male)"
+/>
+<label for="m">male</label><br />
+Institute Name:
+<input type="text" #instName /><br />
+City:
+<input type="text" #city /><br />
+Description:
+<input type="text" #description /><br />
+<button (click)="collectData()">submit</button>
+
+<app-student-info
+  *ngFor="let data of studentData"
+  [studentData]="data"
+  (sendDetails)="InfoToList($event)"
+></app-student-info>
