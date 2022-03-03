@@ -1,65 +1,69 @@
 <!-- @format -->
-
 <form #form="ngForm">
-  <div class="form-group">
-    <label for="fname">FirstName</label>
-    <input
-      type="text"
-      name="fname"
-      id="fname"
-      class="form-control"
-      ngModel
-      #firstName="ngModel"
-      (change)="log(firstName)"
-      minlength="4"
-      maxlength="10"
-      required
-    />
-    <div
-      *ngIf="!firstName.valid && firstName.touched"
-      class="alert alert-danger"
+    <div class="form-group">
+        <label for="fname">FirstName</label>
+        <input type="text" name="fname" id="fname" class="form-control" ngModel #firstName="ngModel" (change)="log(firstName)" minlength="4" maxlength="10" required />
+        <div *ngIf="!firstName.valid && firstName.touched" class="alert alert-danger">
+            <div *ngIf="firstName.errors && firstName.errors['required']">
+                this field is required
+            </div>
+            <div *ngIf="firstName.errors && firstName.errors['minlength']">
+                minimum length of 4 is required
+            </div>
+            <div *ngIf="firstName.errors && firstName.errors['maxlength']">
+                maximum length is 10
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comment">comment:</label>
+        <input #comment="ngModel" ngModel name="comment" id="comment" minlength="50" class="form-control" required />
+        <div *ngIf="comment.touched && !comment.valid" class="alert alert-danger">
+            add minimum length 50 characters
+        </div>
+    </div>
+    <div class="form-group" ngModelGroup #phGroup="ngModelGroup">
+        <label for="phno">phone Number:</label>
+        <input ngModel #phno="ngModel" type="number" name="phoneNumber" id="phno" [pattern]="mobileNumberPattern" class="form-control" required />
+        <div class="alert alert-danger" *ngIf="phno.invalid && phno.touched">
+            enter 10 digit phone number
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" ngModel #email="ngModel" [pattern]="emailIdPattern" required />
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+            enter valid email id
+        </div>
+    </div>
+    <div>
+        <label><input
+        type="checkbox"
+        ngModel
+        #subCheck="ngModel"
+        name="isSubscribed"
+        required
+      />Subscribe</label
     >
-      <div *ngIf="firstName.errors && firstName.errors['required']">
-        this field is required
-      </div>
-      <div *ngIf="firstName.errors && firstName.errors['minlength']">
-        minimum length required
-      </div>
-      <div *ngIf="firstName.errors && firstName.errors['maxlength']">
-        maximum length required
-      </div>
-    </div>
+    <div *ngIf="subCheck.invalid && subCheck.touched">required</div>
   </div>
-  <div class="form-group">
-    <label for="comment">comment:</label>
-    <input
-      #comment="ngModel"
-      ngModel
-      name="comment"
-      id="comment"
-      minlength="100"
-      class="form-control"
-      required
-    />
-    <div *ngIf="comment.touched && !comment.valid" class="alert alert-danger">
-      add minimum length 100 characters
+
+  <div>
+    <label>game:</label>
+        <select ngModel name="game">
+      <option selected hidden disabled value="">cricket</option>
+      <option *ngFor="let game of gamesList" [ngValue]="game">
+        {{ game.name }}
+      </option>
+    </select>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="phno">phone Number:</label>
-    <input
-      ngModel
-      #phno="ngModel"
-      type="number"
-      name="phoneNumber"
-      id="phno"
-      minlength="40"
-      class="form-control"
-      required
-    />
-    <div *ngIf="phno.touched && !phno.valid" class="alert alert-danger">
-      enter 10 digit phone number
+    <div>
+        <label *ngFor="let game of gamesList">
+      <input type="radio" ngModel name="gameradio" [value]="game.id" />
+      {{ game.name }}
+    </label>
     </div>
-  </div>
-  <button class="btn btn-primary" [disabled]="!form.valid">submit</button>
+    <p>{{ form.value | json }}</p>
+
+    <button class="btn btn-primary" [disabled]="!form.valid">submit</button>
 </form>

@@ -11,19 +11,14 @@ import { NgModel } from "@angular/forms";
 export class AppComponent {
   title = "Test";
   comment = "";
+  gamesList = [
+    { id: 1, name: "cricket" },
+    { id: 2, name: "hockey" },
+  ];
+
+  mobileNumberPattern = "[0-9]{10}$";
+  emailIdPattern = "[a-z0-9._%+-]+@gmail+.[a-z]{2,3}$";
   @ViewChild("phno") phno: ElementRef | undefined;
   constructor() {}
-  log(data: NgModel) {
-    console.log(data);
-    console.log(this.comment);
-  }
-  checkPhone() {
-    let ph = this.phno?.nativeElement.value;
-    let l = ph.toString().length;
-    if (l < 10 || l > 10) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  log(data: NgModel) {}
 }
