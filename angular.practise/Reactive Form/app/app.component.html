@@ -1,0 +1,38 @@
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <div class="form-control">
+      <label>User Name:</label>
+      <input type="text" formControlName="userName"/>
+    </div>
+    <div class="error-box">
+      <div *ngIf="getUserName.errors.required && getUserName.touched">this field is required</div>
+      <div *ngIf="getUserName.errors.minlength">minimum length is 5</div>
+      <div *ngIf="getUserName.errors.maxlength">max length is 10</div>
+      <div *ngIf="getUserName.errors.isContainSpace && getUserName.touched">userName can not contain space</div>
+      <div *ngIf="getUserName.errors.pattern">not valid pattern</div>
+    </div> 
+    <div class="form-control">
+      <label>Email:</label>
+      <input type="email"  formControlName="email">
+      <div>
+        <div *ngIf="form.get('email').errors?.pattern">email pattern is not right</div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label>Password:</label>
+      <input type="password" formContolName="password"/>
+      <div *ngIf="form.get('password').errors.required">password is required</div>
+     <!-- <div *ngIf="form.get('password').errors.pattern">pattern doesn't match</div>-->
+    </div>
+
+  </div>
+ 
+   <p>-----------------------</p> 
+</form>
+<!--
+<form [formGroup]="profileForm">
+  <label>First Name:</label>
+  <input type="text" formControlName="profileForm.get('firstName')">
+  <div *ngIf=""></div>
+</form> -->
