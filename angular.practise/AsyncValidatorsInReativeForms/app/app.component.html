@@ -1,0 +1,19 @@
+<!-- @format -->
+
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div>
+        <input type="text" formControlName="userName" name="userName" placeholder="User Name" class="form-control" />
+        <div *ngIf="username?.hasError('required') && username?.touched">
+            this field is required
+        </div>
+        <div *ngIf="username?.hasError('shouldBeUnique')">
+            this username is not available
+        </div>
+    </div>
+    <div>
+        <input type="password" name="password" formControlName="password" placeholder="Password" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>
