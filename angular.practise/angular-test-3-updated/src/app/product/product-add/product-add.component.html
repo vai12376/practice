@@ -1,0 +1,41 @@
+<!-- @format -->
+
+<div class="errorBox" class="alert alert-danger" *ngIf="showErrorBox">
+    <div #errorBox></div>
+</div>
+<div class="container card">
+    <form>
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input #productName type="text" id="name" maxlength="256" placeholder="Product Name" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="rate">Product Rate:</label>
+            <input #productRate type="number" id="rate" placeholder="Product Rate" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="quantity">Product Quantity:</label>
+            <input #productQuantity type="number" id="quantity" placeholder="Product Quantity" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Product Color:</label>
+            <input type="color" value="#e66465" #red (click)="setColor(red)" />
+        </div>
+        <div class="form-group">
+            <label for="lotSize">Product Lot Size:</label>
+            <input #productLotSize type="number" id="lotSize" placeholder="Product Lot Size" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="description">Product Description:</label>
+            <textarea #productDescription type="text" id="description" maxlength="512" placeholder="Product Description" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="validate($event)">
+        add product
+      </button>
+        </div>
+    </form>
+</div>
+
+<app-product-list [rtnP]="rtnP" [productData]="productData"></app-product-list>

@@ -1,0 +1,33 @@
+<!-- @format -->
+<div class="text-center">
+    <p style="font-size: 30px">Sold Table</p>
+</div>
+
+<div class="container">
+    <table class="table table-bordered" style="border-color: black">
+        <thead>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Quantity</th>
+            <th scope="col">Product Rate</th>
+            <th scope="col">Product Sold Date Time</th>
+            <th scope="col">Order Total</th>
+            <th scope="col">Return</th>
+        </thead>
+        <tbody *ngIf="showTable">
+            <tr [ngClass]="setRowColor(item.ordertotal)" *ngFor="let item of SoldList; index as i">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.rate }}</td>
+                <td>{{ item.datetime | date: "dd/MM/YYYY" }}</td>
+                <td>{{ item.ordertotal }}</td>
+                <td>
+                    <button class="btn btn-primary" style="background-color: blue" (click)="returnProduct(item, i)">
+            Return Purchase
+          </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

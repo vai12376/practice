@@ -1,0 +1,47 @@
+<!-- @format -->
+<div class="text-center">
+    <p style="font-size: 30px">product-list</p>
+</div>
+
+<div class="container">
+    <table class="table table-bordered" style="border-color: black">
+        <thead>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Description</th>
+            <th>Purchase Option</th>
+        </thead>
+        <tbody>
+            <tr [ngClass]="setRowColor(product.quantity)" *ngFor="let product of productList; index as i">
+                <td>{{ product.name }}</td>
+                <td>{{ product.color }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.rate }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <button class="btn btn-primary" style="background-color: blue" (click)="purchaseAll(i)">
+            Purchase All</button
+          >&nbsp;&nbsp;
+          <button
+            class="btn btn-primary"
+            style="background-color: blue"
+            (click)="singlePurchase(i)"
+          >
+            Single Purchase</button
+          >&nbsp;&nbsp;
+          <button
+            class="btn btn-primary"
+            style="background-color: blue"
+            (click)="purchaseLot(i)"
+          >
+            Purchase Lot
+          </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-product-sold (rtnProduct)="rtnProduct($event)" [productSoldData]="soldData"></app-product-sold>
