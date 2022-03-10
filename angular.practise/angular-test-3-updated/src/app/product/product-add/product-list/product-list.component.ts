@@ -11,6 +11,7 @@ import {
 } from "@angular/core";
 import swal from "sweetalert2";
 import { IProduct, ISProduct } from "src/app/core/model/interfaces";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-product-list",

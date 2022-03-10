@@ -11,6 +11,7 @@ export interface IProduct {
 }
 export interface ISProduct {
   id: string;
+  salesId?:string;
   name: string;
   rate: string;
   quantity: number;

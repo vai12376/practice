@@ -11,6 +11,7 @@ import {
 } from "@angular/core";
 import { UUID } from "angular2-uuid";
 import { IProduct, ISProduct } from "src/app/core/model/interfaces";
+import swal from "sweetalert";
 
 @Component({
   selector: "app-product-sold",
@@ -19,8 +20,10 @@ import { IProduct, ISProduct } from "src/app/core/model/interfaces";
 })
 export class ProductSoldComponent implements OnInit, OnChanges {
   showTable = false;
+
   @Output()
   rtnProduct = new EventEmitter<ISProduct>();
+
   @Input() productSoldData: ISProduct | undefined;
   SoldList: ISProduct[] = [
     {
@@ -38,27 +41,29 @@ export class ProductSoldComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.productSoldData) {
-      if (this.productSoldData.id !== "") {
-        this.productSoldData.datetime = new Date();
-        let rate = parseInt(this.productSoldData.rate);
-        let quantity = this.productSoldData.quantity;
-        let total = rate * quantity;
-        let ordertotal = total.toString();
-        this.productSoldData.ordertotal = ordertotal;
-        // this.productSoldData.salesId = UUID.UUID();
-        // let temp: any = this.productSoldData;
-        // temp.datetime = new Date();
-        // temp.ordertotal = temp.quantity * temp.rate;
-        this.SoldList.push(this.productSoldData);
-        this.showTable = true;
-      }
+    if (
+      this.productSoldData &&
+      this.productSoldData.id !== "" &&
+      this.productSoldData.id !== null
+    ) {
+      this.productSoldData.datetime = new Date();
+
+      let rate = parseInt(this.productSoldData.rate);
+      let quantity = this.productSoldData.quantity;
+      let total = rate * quantity;
+      let ordertotal = total.toString();
+      
+      this.productSoldData.ordertotal = ordertotal;
+     
+      this.SoldList.push(this.productSoldData);
+      this.showTable = true;
     }
     if (this.SoldList[0].id == "") {
       this.SoldList.splice(0);
     }
   }
   setRowColor(total: any) {
+    //return css class based on ordertotal
     let t = parseInt(total);
     if (t <= 500) {
       return "c1";
@@ -67,7 +72,16 @@ export class ProductSoldComponent implements OnInit, OnChanges {
     }
   }
   returnProduct(data: ISProduct, idx: number) {
-    this.rtnProduct.emit(data);
-    this.SoldList.splice(idx, 1);
+    swal({
+      title: "Are you want to return the purchase?",
+      icon: "info",
+      dangerMode: true,
+    }).then((willReturn) => {
+      if (willReturn) {
+        this.rtnProduct.emit(data);
+        let reverseIndex = this.SoldList.length - idx - 1;
+        this.SoldList.splice(reverseIndex, 1);
+      }
+    });
   }
 }

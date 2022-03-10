@@ -1,6 +1,6 @@
 <!-- @format -->
 
-<div class="errorBox" class="alert alert-danger" *ngIf="showErrorBox">
+<!-- <div class="errorBox" class="alert alert-danger" *ngIf="showErrorBox">
     <div #errorBox></div>
 </div>
 <div class="container card">
@@ -36,6 +36,86 @@
       </button>
         </div>
     </form>
+</div> -->
+<div class="container card">
+    <form [formGroup]="productForm" class="form-group" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            Product Name:
+            <input type="text" formControlName="name" class="form-control" />
+            <div class="invalid-box">
+                <div *ngIf="_productForm['name'].errors?.['required'] && (_productForm['name'].touched || formSubmited)">
+                    required
+                </div>
+                <div *ngIf="_productForm['name'].errors?.['maxlength']">
+                    maximum length is 256 characters.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            Product Rate:
+            <input type="number" formControlName="rate" class="form-control" />
+            <div class="invalid-box">
+                <div class="invalid-box" *ngIf="_productForm['rate'].errors?.['required'] && (_productForm['rate'].touched || formSubmited)">
+                    required
+                </div>
+                <div *ngIf="_productForm['rate'].errors?.['min']">
+                    rate should be minimum 1
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            Product Quantity:
+            <input type="number" formControlName="quantity" class="form-control" />
+            <div class="invalid-box">
+                <div *ngIf="_productForm['quantity'].errors?.['required'] && (_productForm['quantity'].touched || formSubmited)">
+                    required
+                </div>
+                <div *ngIf="_productForm['quantity'].errors?.['min']">
+                    quantity should be minimum 1
+                </div>
+                <div *ngIf="_productForm['quantity'].errors?.['max']">
+                    maximum quantity is 999
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            Product Color:
+            <input type="color" formControlName="color" class="form-control" />
+            <div class="invalid-box" *ngIf="_productForm['color'].errors?.['required'] && (_productForm['color'].touched || formSubmited)">
+                required
+            </div>
+        </div>
+        <div class="form-group">
+            Product LotSize:
+            <input (keyup)="lotSizeValidator()" type="number" formControlName="lotsize" class="form-control" />
+            <div class="invalid-box">
+                <div *ngIf="_productForm['lotsize'].errors?.['required'] && (_productForm['lotsize'].touched || formSubmited)">
+                    required
+                </div>
+                <div *ngIf="_productForm['lotsize'].errors?.['min']">
+                    lot size should be minimum 1
+                </div>
+                <div *ngIf="lotSizeValidator()">
+                    lot size should not be more than quantity
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            Product Description:
+            <textarea formControlName="description" class="form-control"></textarea>
+            <div class="invalid-box">
+                <div *ngIf="_productForm['description'].errors?.['required'] && (_productForm['description'].touched || formSubmited)">
+                    required
+                </div>
+                <div *ngIf="_productForm['description'].errors?.['maxlength']">
+                    maximum length is 512 characters
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Add Product</button>
+        </div>
+    </form>
 </div>
 
-<app-product-list [rtnP]="rtnP" [productData]="productData"></app-product-list>
+<app-product-list [rtnP]="rtnProduct" [productData]="productData"></app-product-list>

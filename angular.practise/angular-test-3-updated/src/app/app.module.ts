@@ -1,6 +1,7 @@
 /** @format */
 
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
@@ -15,7 +16,7 @@ import { ProductSoldComponent } from "./product/product-add/product-list/product
     ProductListComponent,
     ProductSoldComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -15,7 +15,7 @@
             <th scope="col">Return</th>
         </thead>
         <tbody *ngIf="showTable">
-            <tr [ngClass]="setRowColor(item.ordertotal)" *ngFor="let item of SoldList; index as i">
+            <tr [ngClass]="setRowColor(item.ordertotal)" *ngFor="let item of SoldList.reverse();index as i">
                 <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.quantity }}</td>
