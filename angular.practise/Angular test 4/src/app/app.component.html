@@ -1,0 +1,37 @@
+<!-- @format -->
+
+<form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        Title:
+        <input type="text" class="form-control" formControlName="title" />
+        <div *ngIf="_notesForm['title'].errors?.['required'] && _notesForm['title'].touched" class="text-red-400">
+            Title is required
+        </div>
+    </div>
+
+    <div class="form-group form-check">
+        Notes:
+        <input type="text" class="form-control" formControlName="notes" />
+        <div *ngIf="_notesForm['notes'].errors?.['required'] && _notesForm['notes'].touched">
+            Notes is required
+        </div>
+    </div>
+    <div class="form-group">
+        Status:
+        <input type="checkbox" class="form-control" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">add notes</button>
+        <button class="btn btn-primary">clear form</button>
+    </div>
+</form>
+<div class="card" style="width: 18rem">
+    <h5 class="card-title">Card title</h5>
+    <div class="card-body">
+        <p class="card-text">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<router-outlet></router-outlet>
