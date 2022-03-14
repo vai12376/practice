@@ -1,15 +1,7 @@
-p {
-    color: black;
-}
-
 .c1 {
     background-color: lightgreen;
 }
 
 .c2 {
     background-color: lightcoral;
-}
-
-.disabled {
-    visibility: hidden;
 }

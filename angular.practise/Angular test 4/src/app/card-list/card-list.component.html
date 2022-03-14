@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<div *ngFor="let card of cardsArray; let i = index">
+    <div [ngClass]="card.status ? 'c1' : 'c2'" class="card" style="width: 18rem">
+        <h5 class="card-title">Title:{{ card.title }}</h5>
+        <div class="card-body">
+            <p class="card-text">Notes: {{ card.notes }}</p>
+            <p class="card-text">
+                Upadated At:{{ card.updatedAt | date: "yyyy-MM-dd HH:mm:ss" }}
+            </p>
+            <button class="btn btn-primary" (click)="editCardEvent.emit(card.id)">
+        edit</button
+      >&nbsp;
+      <button
+        class="btn btn-primary"
+        (click)="deleteCardEvent.emit(card.id)"
+        [disabled]="card.status"
+      >
+        delete
+      </button>
+        </div>
+    </div>
+    <br />
+</div>
