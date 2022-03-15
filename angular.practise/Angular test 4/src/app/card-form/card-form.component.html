@@ -1,0 +1,52 @@
+<!-- @format -->
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+            <form [formGroup]="cardsForm" (ngSubmit)="onSubmit()">
+                <fieldset id="field" style="border: 3px solid black">
+                    <legend for="field">Add Cards</legend>
+                    <div class="form-group">
+                        <label for="title" class="">Title:</label>
+                        <input id="title" type="text" class="form-control" placeholder="Title" formControlName="title" />
+                        <div *ngIf="_cardsForm['title'].errors">
+                            <div *ngIf="_cardsForm['title'].errors?.['required'] && (_cardsForm['title'].touched || formSubmited)" class="alert alert-danger">
+                                Title is required
+                            </div>
+                            <div *ngIf="_cardsForm['title'].errors?.['maxlength']" class="alert alert-danger">
+                                maximum length of Title is 100 characters
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="notes" class="col-sm-2 col-form-label">Notes:</label>
+                        <textarea id="notes" type="text" class="form-control" placeholder="Notes" formControlName="notes"></textarea>
+                        <div *ngIf="_cardsForm['notes'].errors">
+                            <div *ngIf="_cardsForm['notes'].errors?.['required'] && (_cardsForm['notes'].touched || formSubmited)" class="alert alert-danger">
+                                Notes is required
+                            </div>
+                            <div *ngIf="_cardsForm['notes'].errors?.['maxlength']" class="alert alert-danger">
+                                maximum length of Notes is 1000 characters
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input id="status" type="checkbox" class="form-check-input" formControlName="status" />&nbsp;
+                        <label for="status" class="form-check-label">Status</label>
+                    </div>
+                    <br />
+                    <div>
+                        <button type="submit" class="btn btn-success" #addBtn>
+              {{ editFlag ? "update card" : "add card" }}</button
+            >&nbsp;
+            <button class="btn btn-danger" (click)="clearForm()">
+              clear form
+            </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

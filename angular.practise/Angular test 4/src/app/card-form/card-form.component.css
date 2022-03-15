@@ -1,0 +1,14 @@
+.c1 {
+    background-color: lightgreen;
+}
+
+.c2 {
+    background-color: lightcoral;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 200px;
+}

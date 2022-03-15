@@ -1,44 +1,25 @@
 <!-- @format -->
-
-<form [formGroup]="cardsForm" (ngSubmit)="onSubmit()">
-    <fieldset id="field" style="border: 3px solid black">
-        <legend for="field">Add Cards</legend>
-        <div class="form-group">
-            <label>Title:</label>
-            <input type="text" class="form-control" formControlName="title" />
-            <div *ngIf="_cardsForm['title'].errors && formSubmited" class="alert alert-danger">
-                <div *ngIf="_cardsForm['title'].errors?.['required'] && (_cardsForm['title'].touched || formSubmited)" class="text-red-400">
-                    Title is required
-                </div>
-                <div *ngIf="_cardsForm['title'].errors?.['maxlength'] && (_cardsForm['title'].touched || formSubmited)" class="text-red-400">
-                    Title is required
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Notes:</label>
-            <input type="text" class="form-control" formControlName="notes" />
-            <div *ngIf="_cardsForm['notes'].errors && formSubmited" class="alert alert-danger">
-                <div *ngIf="_cardsForm['notes'].errors?.['required'] && (_cardsForm['notes'].touched || formSubmited)">
-                    Notes is required
-                </div>
-                <div *ngIf="_cardsForm['notes'].errors?.['maxlength'] && (_cardsForm['notes'].touched || formSubmited)">
-                    Notes is required
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Status:</label>
-            <input type="checkbox" formControlName="status" />
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary" #addBtn>add card</button
+<app-card-form (onSubmitEvent)="addCard($event)" [editFlag]="editFlag" [editData]="editData"></app-card-form>
+<div *ngFor="let card of cardsArray; let i = index">
+    <div [ngClass]="card.status ? 'c1' : 'c2'" class="card" style="width: 18rem">
+        <h5 class="card-title">Title:{{ card.title }}</h5>
+        <div class="card-body">
+            <p class="card-text">Notes: {{ card.notes }}</p>
+            <p class="card-text">
+                Upadated At:{{ card.updatedAt | date: "yyyy-MM-dd HH:mm:ss" }}
+            </p>
+            <button class="btn btn-info" (click)="editCard(card.id)">edit</button
       >&nbsp;
-      <button class="btn btn-primary" (click)="clearForm()">clear form</button>
+      <button
+        class="btn btn-warning"
+        (click)="deleteCard(card.id)"
+        [disabled]="card.status"
+      >
+        delete
+      </button>
         </div>
-    </fieldset>
-</form>
+    </div>
+    <br />
+</div>
 
-<app-card-list [cardsArray]="cardsArray" (editCardEvent)="editCard($event)" (deleteCardEvent)="deleteCard($event)"></app-card-list>
 <router-outlet></router-outlet>
