@@ -66,3 +66,7 @@ the content refers to the projected content from the parent components
 #operators in rxjs
 
 practice of rxjs oprators is [practices](https://stackblitz.com/edit/angular-ivy-3nxvwb?file=src%2Fapp%2Fgenerate%2Fgenerate.component.ts).
+
+
+practice of rxjs oprators [practices](https://stackblitz.com/edit/angular-ivy-3nxvwb?file=src%2Fapp%2Fapp.component.html)
+
