@@ -70,3 +70,4 @@ practice of rxjs oprators is [practices](https://stackblitz.com/edit/angular-ivy
 
 practice of rxjs oprators [practices](https://stackblitz.com/edit/angular-ivy-3nxvwb?file=src%2Fapp%2Fapp.component.html)
 
+practice of rxjs oprators on 3/21/2022 [practices](https://stackblitz.com/edit/angular-ivy-3nxvwb?file=src%2Fapp%2Fapp.component.html)
