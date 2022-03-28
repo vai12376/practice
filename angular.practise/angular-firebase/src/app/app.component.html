@@ -1,0 +1,42 @@
+<!-- @format -->
+<div class="container">
+    <div class="row justify-content-center p-4">
+        <div class="col-md-6">
+            <h3>FireBase SignIn</h3>
+            <div *ngIf="showAlertMsg" [ngClass]="
+          alertMsg == 'invalid request' ? 'alert-danger' : 'alert-success'
+        ">
+                {{ alertMsg }}
+            </div>
+            <form [formGroup]="signInForm">
+                <div class="form-group">
+                    <label for="nameInput">First Name:</label>
+                    <input formControlName="firstName" type="text" class="form-control" id="nameInput" placeholder="First Name" />
+                </div>
+                <div class="form-group">
+                    <label for="ageInput">Age:</label>
+                    <input formControlName="age" type="number" class="form-control" id="ageInput" placeholder="Age" />
+                </div>
+                <div class="form-group">
+                    <label for="emailInput">Email:</label>
+                    <input formControlName="email" type="email" class="form-control" id="emailInput" placeholder="Email" />
+                    <div *ngIf="_signInForm['email'].errors?.['emailTaken']">
+                        this email is Taken.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordInput">Password:</label>
+                    <input formControlName="password" type="password" class="form-control" id="passwordInput" placeholder="Password" />
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="onSignUp()">
+          SignUp
+        </button>
+                <button type="submit" class="btn btn-primary" (click)="onSignIn()">
+          SignIn
+        </button>
+            </form>
+        </div>
+    </div>
+</div>
