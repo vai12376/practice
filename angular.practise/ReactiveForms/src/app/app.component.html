@@ -1,0 +1,30 @@
+<!-- @format -->
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="formGroup">
+        <label>Name:</label>
+        <input type="text" formControlName="name" />
+    </div>
+    <div class="formGroup">
+        <label>Email:</label>
+        <input type="email" formControlName="email" />
+    </div>
+    <div class="formGroup">
+        <label>password:</label>
+        <input type="password" formControlName="password" />
+
+        <div *ngIf="_userForm['password'].errors">not valid password</div>
+    </div>
+    <div class="formGroup">
+        <label> confirm password:</label>
+        <input type="password" formControlName="confirmPassword" />
+        <div *ngIf="_userForm['confirmPassword'].errors?.['required']">
+            passwordis req
+        </div>
+        <div *ngIf="_userForm['confirmPassword'].errors?.['mustMatch']">
+            password and confirm password not matching
+        </div>
+    </div>
+
+    <button type="submit">submit</button>
+</form>
