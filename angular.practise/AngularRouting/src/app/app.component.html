@@ -1,0 +1,34 @@
+<!-- @format -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/" routerLinkActive="cl1" [routerLinkActiveOptions]="{ exact: true }">Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/manage"
+          routerLinkActive="cl1"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Manage</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/about"
+          routerLinkActive="cl1"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >About</a
+        >
+      </li>
+      <li class="nav-item active">
+        <button class="btn btn-primary" (click)="onLogOut()">Log Out</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
