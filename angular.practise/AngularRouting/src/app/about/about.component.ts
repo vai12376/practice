@@ -10,7 +10,11 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class AboutComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {
-    console.log(this.activatedRoute.snapshot.params["id"]);
+    this.activatedRoute.queryParams.subscribe((v) => console.log(v));
+
+    this.activatedRoute.data.subscribe((val) => {
+      console.log(val);
+    });
   }
 
   ngOnInit(): void {}

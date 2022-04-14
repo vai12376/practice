@@ -1,0 +1,7 @@
+<!-- @format -->
+Name:
+<input type="text" #nameTxt /><br /> color: <input type="text" #colorTxt /><br />
+<button type="submit" (click)="onSubmit(nameTxt.value, colorTxt.value)">
+  submit
+</button>
+<router-outlet></router-outlet>

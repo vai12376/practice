@@ -1,0 +1,10 @@
+<!-- @format -->
+
+<p>login works!</p>
+
+<input type="text" #username />
+<input type="password" #password />
+
+<button type="submit" (click)="onSubmit(username.value, password.value)">
+  submit
+</button>
