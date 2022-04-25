@@ -15,6 +15,10 @@ export class AboutComponent implements OnInit {
     this.activatedRoute.data.subscribe((val) => {
       console.log(val);
     });
+
+    this.activatedRoute.fragment.subscribe((val) => {
+      console.log(val);
+    });
   }
 
   ngOnInit(): void {}
